@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -30,4 +29,11 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+body {
+  background: linear-gradient(to bottom, #0B8793, #360033);
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--font-inter);
 }
