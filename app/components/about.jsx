@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const About = () => {
     return (
-        <div className="text-white flex justify-between items-center mt-32">
+        <div className="text-white flex justify-between items-center mt-32 ">
             <div className="w-1/2">
                 <h2 className="text-3xl font-bold mb-4">Qui suis-je ?</h2>
                 <p className="mb-2 text-lg">Actuellement en deuxième année de formation en développement web à MyDigitalSchool, je suis passionné par le monde du développement 👨‍💻</p>
@@ -12,7 +12,7 @@ const About = () => {
             </div>
 
             <Image
-                className="rounded-lg"
+                className="rounded-lg color hover:grow"
                 src="/large.JPEG"
                 alt="Picture of the author"
                 width={600}

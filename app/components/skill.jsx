@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const Skill = () => {
     return (
-        <div className="mt-32">
+        <div className="mt-64">
             <h2 className="text-3xl font-bold mb-4 text-white">Skills</h2>
             <div className='grid grid-cols-5 gap-6'>
                 <div className='bg-white flex size-fit w-52 justify-between items-center px-3 py-1 rounded-lg font-semibold'>

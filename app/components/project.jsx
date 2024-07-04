@@ -2,11 +2,11 @@ import Image from 'next/image'
 
 const Project = () => {
     return (
-        <div className="mt-32">
+        <div className="mt-64">
             <h2 className="text-3xl font-bold mb-4 text-white">
                 Mes projets
             </h2>
-            <div className='grid grid-cols-3 gap-6'>
+            <div className='grid grid-cols-4  items-center'>
                 <div className="bg-white w-80 h-80 rounded-lg p-3">
                     <div className='flex justify-between'>
                         <Image
@@ -19,8 +19,9 @@ const Project = () => {
                             height={60} />
                     </div>
                     <div className='flex-col'>
-                        <h3 className='text-xl font-bold'>Application reporting incident - Laravel</h3>
-                        <p className='text-lg mt-4'>Entrée de données via formulaire, système de validation et d’édition via une interface administrateur sécurisé puis restitution en front.</p>
+                        <h3 className='text-xl font-bold'>Ce site - NextJs</h3>
+                        <p className='italic'>Juillet 2024</p>
+                        <p className='text-lg mt-4'>Suite à mon ancien portfolio qui avait été créer en HTML/CSS/JS j'ai décider d'en faire un nouveau. J'ai d'abord réaliser une maquette sur figma avant de la développer en NextJs.</p>
                     </div>
                 </div>
                 <div className="bg-white w-80 h-80 rounded-lg p-3">
@@ -36,7 +37,8 @@ const Project = () => {
                     </div>
                     <div className='flex-col'>
                         <h3 className='text-xl font-bold'>Site vitrine restaurant
-                        -NextJS</h3>
+                            -NextJS</h3>
+                        <p className='italic'>Juin 2024</p>
                         <p className='text-lg mt-4'>Système de réservation en ligne via un formulaire, gestion des menus via un backoffice. Je me suis appuyer sur la bibliothèque React.</p>
                     </div>
                 </div>
@@ -52,8 +54,27 @@ const Project = () => {
                             height={60} />
                     </div>
                     <div className='flex-col'>
-                        <h3 className='text-xl font-bold'>Ce site - NextJs</h3>
-                        <p className='text-lg mt-4'>Suite à mon ancien portfolio qui avait été créer en HTML/CSS/JS j'ai décider d'en faire un nouveau. J'ai d'abord réaliser une maquette sur figma avant de la développer en NextJs.</p>
+                        <h3 className='text-xl font-bold'>Application reporting incident - Laravel</h3>
+                        <p className='italic'>Avril 2024</p>
+                        <p className='text-lg mt-4'>Entrée de données via formulaire, système de validation et d’édition via une interface administrateur sécurisé puis restitution en front.</p>
+                    </div>
+                </div>
+
+                <div className="bg-white w-80 h-80 rounded-lg p-3">
+                    <div className='flex justify-between'>
+                        <Image
+                            src="/folder.svg"
+                            width={60}
+                            height={60} />
+                        <Image
+                            src="/github.svg"
+                            width={60}
+                            height={60} />
+                    </div>
+                    <div className='flex-col'>
+                        <h3 className='text-xl font-bold'>Cookie Clicker - HTML/CSS/JS</h3>
+                        <p className='italic'>Avril 2023</p>
+                        <p className='text-lg mt-4'>Réalisation d'un cookie clicker pour appréhender les concepts clés de javascript tel que les boucles, les objets, les fonctions...</p>
                     </div>
                 </div>
             </div>
