@@ -1,7 +1,7 @@
 const Navbar = () => {
     return (
         <div>
-            <ul className="flex text-white justify-around py-5 font-semibold">
+            <ul className="text-white justify-around py-5 font-semibold hidden lg:flex">
                 <li><a href="#about">A propos</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projets</a></li>

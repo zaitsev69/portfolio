@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const About = () => {
     return (
-        <div id="about" className="text-white flex justify-between items-center mt-64 ">
+        <div id="about" className="text-white justify-between items-center mt-64 hidden lg:flex">
             <div className="w-1/2">
                 <h2 className="text-3xl font-bold mb-4">Qui suis-je ?</h2>
                 <p className="mb-2 text-lg highlight-text">Actuellement en deuxième année de formation en développement web à MyDigitalSchool et passionné par le monde du développement 👨‍💻</p>

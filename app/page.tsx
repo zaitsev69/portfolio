@@ -6,10 +6,12 @@ import Project from '../app/components/project';
 import Contact from '../app/components/contact';
 import Footer from '../app/components/footer';
 import Skilldeux from '../app/components/skilldeux';
+import Mobile from '../app/components/mobile'
 
 export default function Home() {
   return (
     <main className="lg:mx-48 scroll-smooth">
+      <Mobile />
       <Navbar />
       <Hero />
       <About />

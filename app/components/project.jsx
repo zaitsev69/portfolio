@@ -77,7 +77,7 @@ const Project = () => {
   ];
 
   return (
-    <div className="mt-64" id="projects" ref={ref}>
+    <div className="mt-64 hidden lg:block" id="projects" ref={ref}>
       <h2 className="text-3xl font-bold mb-4 text-white">Mes projets</h2>
       <div className='grid grid-cols-4 items-center'>
         {projects.map((project, index) => (

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Hero = () => {
     return (
-        <div className="bg-white w-2/3 p-6 flex items-center justify-item-center rounded-lg mx-auto mt-32">
+        <div className="bg-white w-2/3 p-6 items-center justify-item-center rounded-lg mx-auto mt-32 hidden lg:flex">
             <div className="mr-10">
                 <div className="inline-block">
                     <h1 className="text-4xl  mb-4 inline-block typing-demo border-black border-r-4">Bonjour, bienvenue sur mon portfolio.</h1>
