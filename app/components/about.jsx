@@ -2,13 +2,12 @@ import Image from "next/image";
 
 const About = () => {
     return (
-        <div className="text-white flex justify-between items-center mt-32 ">
+        <div id="about" className="text-white flex justify-between items-center mt-64 ">
             <div className="w-1/2">
                 <h2 className="text-3xl font-bold mb-4">Qui suis-je ?</h2>
-                <p className="mb-2 text-lg">Actuellement en deuxième année de formation en développement web à MyDigitalSchool, je suis passionné par le monde du développement 👨‍💻</p>
-                <p className="mb-2 text-lg">Mon parcours et mes projets personnels m'ont permis de me familiariser avec diverses technologies et frameworks modernes comme Next.js, React, Laravel et Svelte. En plus de mes compétences en développement front-end et back-end, je maîtrise les langages et technologies essentiels tels que HTML, CSS, Tailwind, PHP et MySQL. Ces compétences me permettent de créer et développer des applications web performantes et modernes.</p>
-                <p className="mb-2 text-lg">Pour ma troisième année d'études, je suis à la recherche d'une opportunité d'alternance en tant que développeur web.</p>
-                <p className="mb-2 text-lg">Si vous recherchez un alternant motivé, passionné et sympa, contactez-moi 👋</p>
+                <p className="mb-2 text-lg highlight-text">Actuellement en deuxième année de formation en développement web à MyDigitalSchool et passionné par le monde du développement 👨‍💻</p>
+                <p className="mb-2 text-lg highlight-text">Mon parcours et mes projets personnels m&apos;ont permis de me familiariser avec diverses technologies et frameworks modernes comme Next.js, React, Laravel et Svelte. En plus de mes compétences en développement front-end et back-end, je maîtrise les langages et technologies essentiels tels que HTML, CSS, Tailwind, PHP et MySQL. J&apos;essaye de créer et de développer des applications web performantes et modernes.</p>
+                <p className="mb-2 text-lg highlight-text">À côté de ça, je fais de la guitare électrique, de l&apos;escalade (le sport en général), et j&apos;aime aussi tout ce qui est lié à l&apos;image 🎥</p>
             </div>
 
             <Image

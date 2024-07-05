@@ -38,11 +38,11 @@ body {
   font-family: var(--font-inter);
 }
 
-
+/*typing*/
 
 .typing-demo {
-  width: 24ch;
-  animation: typing 2s steps(24), blink .5s step-end infinite alternate;
+  width: 37ch;
+  animation: typing 3s steps(37), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
@@ -62,6 +62,8 @@ body {
   }
 }
 
+
+/*animate pic*/
 .grow { 
   transition: all .2s ease-in-out; 
 }
@@ -86,7 +88,7 @@ body {
 
 
 
-  
+/*Card skill*/
 
   .relative {
     perspective: 1000px;
@@ -117,4 +119,51 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+/*Highlight about*/
+
+.highlight-text {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: color 0.3s ease-out;
+  color: rgb(255, 255, 255); 
+}
+
+.highlight-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: -1; 
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
+}
+
+.highlight-text:hover {
+  color: #064b52; /* switch color */
+}
+
+.highlight-text:hover::before {
+  transform: scaleX(1);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* bow shadow */
+}
+
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
