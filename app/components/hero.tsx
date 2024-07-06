@@ -2,13 +2,13 @@ import Image from "next/image";
 
 const Hero = () => {
     return (
-        <div className="bg-white text-black w-2/3 p-6 items-center justify-item-center rounded-lg mx-auto mt-32 hidden lg:flex">
-            <div className="mr-10">
+        <div className="bg-white text-black w-4/5 p-6 items-center justify-item-center rounded-lg mx-auto mt-32 hidden lg:flex">
+            <div className="2xl:mr-10 mr-5">
                 <div className="inline-block">
                     <h1 className="text-4xl  mb-4 inline-block typing-demo border-black border-r-4">Bonjour, bienvenue sur mon portfolio.</h1>
                 </div>
-                <p className="text-lg ">Développeur web passionné, basé à Lyon 👨‍💻 <br></br>Apprenti créateur d&apos;applications et site web aussi bien en front qu&apos;en back.<br></br>
-                    Je recherche une alternance pour ma troisième année. Alors si vous cherchez quelqu&apos;un de motivé et sympa, contactez-moi 😉</p>
+                <p className="text-lg ">Développeur web passionné, basé à Lyon. 👨‍💻 <br></br>Apprenti créateur d&apos;applications et site web aussi bien en front qu&apos;en back.<br></br>
+                    Je recherche une alternance pour ma troisième année. Alors si vous cherchez quelqu&apos;un de motivé et avide d'apprendre, contactez-moi. 😉</p>
                 <div className="flex justify-items-center justify-center space-x-4 mt-4">
                     <a href="https://www.linkedin.com/in/nathan-cadilhac/" target="_blank" rel="noopener noreferrer">
                         <svg className="fill-black hover:fill-sky-700 transition-colors duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="45px" height="45px">
@@ -23,7 +23,7 @@ const Hero = () => {
                 </div>
 
             </div>
-            <Image className="rounded-full grow hover:grow"
+            <Image className="rounded-full grow hover:grow position:static"
                 src="/profil2.png"
                 width={250}
                 height={250}

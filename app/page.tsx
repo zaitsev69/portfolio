@@ -10,7 +10,7 @@ import Mobile from '../app/components/mobile'
 
 export default function Home() {
   return (
-    <main className="lg:mx-48 scroll-smooth">
+    <main className="mx-24 2xl:mx-48 scroll-smooth">
       <Mobile />
       <Navbar />
       <Hero />
