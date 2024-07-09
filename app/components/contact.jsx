@@ -9,7 +9,7 @@ const Contact = () => {
                 <path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
 
-            <a href="mailto:nathancadilhac.pro@gmail.com">
+            <a href="mailto:nathan.cadilhacpro@gmail.com">
                 <button className="bg-white text-black p-2 rounded-lg text-xl font-extrabold border-4 border-transparent hover:border-purple-900  transition-all duration-300">
                     Me contacter
                 </button>
