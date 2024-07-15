@@ -63,11 +63,18 @@ const Project = () => {
       url: "https://github.com/zaitsev69/acacia"
     },
     {
+      title: "Festival pente en scène - Wordpress",
+      date: "Mai 2024",
+      description: "Site WordPress réalisé dans le cadre du festival Pente en Scène, utilisant Elementor et du JavaScript, basé sur une maquette que j'avais conçue.",
+      url: "https://ariella-lekogoyolla.mds-lyon.yt/"
+    },
+    {
       title: "Application reporting incident - Laravel",
       date: "Avril 2024",
       description: "Entrée de données sur un formulaire, système de validation et d’édition via une interface administrateur sécurisé puis restitution en front.",
       url: "https://github.com/zaitsev69/FFS"
     },
+
     {
       title: "Cookie Clicker - HTML/CSS/JS",
       date: "Avril 2023",
