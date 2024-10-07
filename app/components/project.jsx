@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const ProjectCard = ({ title, techno, date, shortDescription, detailedDescription, image, link, inView, index, onImageClick }) => (
   <motion.div
-    className="group bg-white w-full max-w-full mx-auto rounded-lg p-6 cursor-pointer flex justify-between items-center mb-6 transition-all duration-500 overflow-hidden transform"
+    className="group bg-black w-full border-4 border-white max-w-full mx-auto rounded-lg p-6 cursor-pointer flex justify-between items-center mb-6 transition-all duration-500 overflow-hidden transform"
     initial={{ opacity: 0, y: 20 }}
     animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
     transition={{
@@ -22,16 +22,16 @@ const ProjectCard = ({ title, techno, date, shortDescription, detailedDescriptio
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, ease: "easeInOut", delay: index * 0.1 }}
     >
-      <h3 className="text-2xl font-bold mb-2">{title}</h3>
-      <h4 className="text-md font-semibold mb-2">{techno}</h4>
-      <p className="italic text-sm mb-4">{date}</p>
-
+      <h3 className="text-2xl text-white font-bold mb-2">{title}</h3>
+      <h4 className="text-md text-white font-semibold mb-2">{techno}</h4>
+      <p className="italic text-white text-sm mb-4">{date}</p>
+      
       {/* Texte court affiché en haut */}
-      <p>{shortDescription}</p>
-
+      <p className="italic text-white">{shortDescription}</p>
+      
       {/* Texte détaillé affiché en dessous en permanence */}
       <div className="mt-4">
-        <p>{detailedDescription}</p>
+        <p className="text-white">{detailedDescription}</p>
       </div>
     </motion.div>
 
@@ -155,7 +155,7 @@ const Project = () => {
   return (
     <div className="mt-64 text-black" id="projects" ref={ref}>
       {/* Boutons de catégorie */}
-      <div className="text-center mb-8 sticky top-0 z-50 flex gap-4 justify-center">
+      <div className="text-center mb-8 sticky top-5 z-50 flex gap-4 justify-center">
         <motion.button
           className={`text-white px-4 py-2 rounded-lg ${activeCategory === 'dev' ? 'bg-blue-600' : 'bg-gray-400'}`}
           onClick={() => toggleCategory('dev')}

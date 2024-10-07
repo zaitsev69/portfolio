@@ -24,7 +24,7 @@ const Hero = () => {
 
             </div>
             <Image className="rounded-full grow hover:grow position:static"
-                src="/profil2.png"
+                src="/photocv.png"
                 width={250}
                 height={250}
                 alt="Photo de profil"

@@ -32,7 +32,7 @@ body {
 }
 
 body {
-  background: linear-gradient(to bottom, #0B8793, #360033);
+  background: black;
   min-height: 100vh;
   margin: 0;
   font-family: var(--font-inter);
@@ -146,7 +146,7 @@ body {
 }
 
 .highlight-text:hover {
-  color: #064b52; /* switch color */
+  color: #000000; /* switch color */
 }
 
 .highlight-text:hover::before {

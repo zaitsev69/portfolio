@@ -10,7 +10,7 @@ const Contact = () => {
             </svg>
 
             <a href="mailto:nathan.cadilhacpro@gmail.com">
-                <button className="bg-white text-black p-2 rounded-lg text-xl font-extrabold border-4 border-transparent hover:border-purple-900  transition-all duration-300">
+                <button className="bg-white text-black p-2 rounded-lg text-xl font-extrabold border-4 border-transparent hover:border-black  transition-all duration-300">
                     Me contacter
                 </button>
             </a>
