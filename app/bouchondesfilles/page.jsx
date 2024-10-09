@@ -10,7 +10,7 @@ const BouchonDesFilles = () => {
           <div className="w-1/2 pr-8">
             <h1 className='text-white text-5xl bold mb-4'>Bouchon des Filles</h1>
             <p className='text-white'>
-              Réalisation d'&apos;une charte graphique pour un restaurant lyonnais &quot;Le bouchon des filles&quot;.
+              Réalisation d'&apos;une charte graphique pour un restaurant lyonnais Le bouchon des filles.
             </p>
           </div>
           
