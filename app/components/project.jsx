@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 const ProjectCard = ({ title, techno, date, shortDescription, detailedDescription, image, link, inView, index, onImageClick }) => (
   <motion.div
@@ -145,15 +146,15 @@ L'objectif de ce site est de transmettre l'esprit du festival, d'informer le pub
     ],
     graphisme: [
       {
-        title: "Affiche de concert",
+        title: "Bouchon des filles",
         techno: "Photoshop",
         date: "Mars 2024",
-        shortDescription: "Création d'une affiche pour un événement musical.",
+        shortDescription: "Bouchon des filles",
         detailedDescription: `
           Cette affiche a été conçue pour un concert de musique rock, en utilisant Photoshop pour créer un design attractif et impactant. 
         `,
         image: "/concert.jpg",
-        link: "https://fakeconcertlink.com",  // Faux lien inventé
+        link: "/bouchondesfilles", 
       }
     ],
     ui: [
@@ -180,7 +181,7 @@ L'objectif de ce site est de transmettre l'esprit du festival, d'informer le pub
       {/* Boutons de catégorie */}
       <div className="text-center mb-8 sticky top-5 z-50 flex gap-4 justify-center">
         <motion.button
-          className={`text-white px-4 py-2 rounded-lg ${activeCategory === 'dev' ? 'bg-blue-600' : 'bg-gray-400'}`}
+          className={` px-4 py-2 rounded-lg ${activeCategory === 'dev' ? 'bg-black border-2 border-white text-white' : 'bg-white text-black'}`}
           onClick={() => toggleCategory('dev')}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -188,7 +189,7 @@ L'objectif de ce site est de transmettre l'esprit du festival, d'informer le pub
           Dev Projects
         </motion.button>
         <motion.button
-          className={`text-white px-4 py-2 rounded-lg ${activeCategory === 'graphisme' ? 'bg-blue-600' : 'bg-gray-400'}`}
+          className={`px-4 py-2 rounded-lg ${activeCategory === 'graphisme' ? 'bg-black border-2 border-white text-white' : 'bg-white text-black'}`}
           onClick={() => toggleCategory('graphisme')}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -196,7 +197,7 @@ L'objectif de ce site est de transmettre l'esprit du festival, d'informer le pub
           Graphisme
         </motion.button>
         <motion.button
-          className={`text-white px-4 py-2 rounded-lg ${activeCategory === 'ui' ? 'bg-blue-600' : 'bg-gray-400'}`}
+          className={`px-4 py-2 rounded-lg ${activeCategory === 'ui' ? 'bg-black border-2 border-white text-white' : 'bg-white text-black'}`}
           onClick={() => toggleCategory('ui')}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}

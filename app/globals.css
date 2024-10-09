@@ -167,3 +167,76 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+
+/* animation navbar */
+.nav-bar {
+    opacity: 0;
+    animation: fadeInNav 0.5s forwards;
+    animation-delay: 1s; /* Délai de 1 seconde avant que l'animation ne commence */
+}
+
+@keyframes fadeInNav {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.nav-item {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInItem 0.8s forwards;
+}
+
+@keyframes fadeInItem {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Délais pour l'animation décalée après 1 seconde */
+.delay-1 {
+    animation-delay: 1.2s;
+}
+
+.delay-2 {
+    animation-delay: 1.4s;
+}
+
+.delay-3 {
+    animation-delay: 1.6s;
+}
+
+.delay-4 {
+    animation-delay: 1.8s;
+}
+
+
+@keyframes slideIn {
+  from {
+      transform: translateY(50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+.animate-slide-in-delayed {
+  animation: slideIn 0.8s ease-out forwards; /* Delai supplémentaire */
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+
