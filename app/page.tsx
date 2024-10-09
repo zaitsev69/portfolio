@@ -7,6 +7,7 @@ import Contact from '../app/components/contact';
 import Footer from '../app/components/footer';
 import Skilldeux from '../app/components/skilldeux';
 import Mobile from '../app/components/mobile'
+import Carrouselprojet from '../app/components/project2'
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
       <Hero />
       <About />
       <Skilldeux />
-      <Project />
+      <Carrouselprojet />
       <Contact />
       <Footer />
     </main>

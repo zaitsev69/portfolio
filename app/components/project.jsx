@@ -7,16 +7,15 @@ import Link from 'next/link';
 const ProjectCard = ({ title, techno, date, shortDescription, detailedDescription, image, link, inView, index, onImageClick }) => (
   <motion.div
     className="group bg-black w-full border-4 border-white max-w-full mx-auto rounded-lg p-6 cursor-pointer flex justify-between items-center mb-6 transition-all duration-500 overflow-hidden transform"
-    initial={{ opacity: 0, y: 20 }}
-    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+    initial={{ opacity: 0, y: 50 }}  // Modifié à y: 50 pour une montée plus douce
+    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}  // Ajustement de y
     transition={{
-      duration: 0.1,
-      ease: "easeInOut",
+      duration: 0.5,  // Durée plus longue pour la fluidité
+      ease: "easeInOut",  // Utilisation d'une courbe d'accélération plus douce
     }}
     whileHover={{ scale: 1.05 }}  
-    onClick={() => window.open(link, '_blank')}  // Redirection au clic sur la carte
+    onClick={() => window.open(link, '_blank')}
   >
-    {/* Section de gauche - Titre, Techno, Date, et descriptions */}
     <motion.div
       className="flex flex-col justify-start w-1/2"
       initial={{ opacity: 0, x: -50 }}
@@ -26,17 +25,12 @@ const ProjectCard = ({ title, techno, date, shortDescription, detailedDescriptio
       <h3 className="text-2xl text-white font-bold mb-2">{title}</h3>
       <h4 className="text-md text-white font-semibold mb-2">{techno}</h4>
       <p className="italic text-white text-sm mb-4">{date}</p>
-      
-      {/* Texte court affiché en haut */}
       <p className="italic text-white">{shortDescription}</p>
-      
-      {/* Texte détaillé affiché en dessous en permanence */}
       <div className="mt-4">
         <p className="text-white">{detailedDescription}</p>
       </div>
     </motion.div>
 
-    {/* Image à droite, clique pour affichage plein écran */}
     <motion.div
       className="w-1/2 h-auto"
       initial={{ opacity: 0, x: 50 }}
@@ -50,7 +44,7 @@ const ProjectCard = ({ title, techno, date, shortDescription, detailedDescriptio
         alt="Project image" 
         className="object-cover w-full h-full rounded-lg"
         onClick={(e) => {
-          e.stopPropagation();  // Empêche la redirection lors du clic sur l'image
+          e.stopPropagation();
           onImageClick(image);
         }}
       />
@@ -60,9 +54,8 @@ const ProjectCard = ({ title, techno, date, shortDescription, detailedDescriptio
 
 const Project = () => {
   const [inView, setInView] = useState(false);
-  const [isDevTabOpen, setIsDevTabOpen] = useState(true);  // Dev Projects par défaut
-  const [activeCategory, setActiveCategory] = useState('dev'); // État pour la catégorie active
-  const [selectedImage, setSelectedImage] = useState(null);  // Pour gérer l'affichage de l'image plein écran
+  const [activeCategory, setActiveCategory] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -82,7 +75,8 @@ const Project = () => {
         observer.unobserve(ref.current);
       }
     };
-  }, []);
+  }, [activeCategory]);
+
 
   const projects = {
     dev: [
@@ -172,13 +166,14 @@ L'objectif de ce site est de transmettre l'esprit du festival, d'informer le pub
     ],
   };
 
+  
   const toggleCategory = (category) => {
+    setInView(false);  // Réinitialiser inView lors du changement de catégorie
     setActiveCategory(category);
   };
 
   return (
     <div className="mt-64 text-black" id="projects" ref={ref}>
-      {/* Boutons de catégorie */}
       <div className="text-center mb-8 sticky top-5 z-50 flex gap-4 justify-center">
         <motion.button
           className={` px-4 py-2 rounded-lg ${activeCategory === 'dev' ? 'bg-black border-2 border-white text-white' : 'bg-white text-black'}`}
@@ -206,40 +201,45 @@ L'objectif de ce site est de transmettre l'esprit du festival, d'informer le pub
         </motion.button>
       </div>
 
-      {/* Affichage des projets */}
-      <AnimatePresence>
-        <motion.div
-          className="flex flex-col gap-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-        >
-          {projects[activeCategory].map((project, index) => (
-            <ProjectCard 
-              key={index}
-              title={project.title}
-              techno={project.techno}
-              date={project.date}
-              shortDescription={project.shortDescription}
-              detailedDescription={project.detailedDescription}
-              image={project.image}
-              link={project.link}
-              inView={inView}
-              index={index}
-              onImageClick={setSelectedImage}  // Affichage plein écran de l'image
-            />
-          ))}
-        </motion.div>
-      </AnimatePresence>
+      {activeCategory === null ? (
+        <div className="text-center text-white">
+          <p>Veuillez sélectionner une catégorie pour afficher les projets.</p>
+        </div>
+      ) : (
+        <AnimatePresence>
+          <motion.div
+            key={activeCategory}
+            className="flex flex-col gap-8"
+            initial={{ opacity: 0, y: 50 }}  // Départ plus bas pour l'animation globale
+            animate={{ opacity: 1, y: 0 }}  // Montée plus fluide
+            exit={{ opacity: 0, y: 50 }}  // Retour en douceur
+            transition={{ duration: 0.6, ease: "easeInOut" }}  // Transition plus longue et plus fluide
+          >
+            {projects[activeCategory].map((project, index) => (
+              <ProjectCard 
+                key={index}
+                title={project.title}
+                techno={project.techno}
+                date={project.date}
+                shortDescription={project.shortDescription}
+                detailedDescription={project.detailedDescription}
+                image={project.image}
+                link={project.link}
+                inView={inView}
+                index={index}
+                onImageClick={setSelectedImage}  
+              />
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      )}
 
-      {/* Affichage plein écran de l'image */}
       {selectedImage && (
         <motion.div 
           className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          onClick={() => setSelectedImage(null)}  // Fermer l'image plein écran au clic
+          onClick={() => setSelectedImage(null)}
         >
           <Image 
             src={selectedImage} 
