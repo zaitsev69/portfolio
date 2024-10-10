@@ -17,7 +17,7 @@ export default function Home() {
       <Hero />
       <About />
       <Skilldeux />
-      <Carrouselprojet />
+      <Project />
       <Contact />
       <Footer />
     </main>

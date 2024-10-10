@@ -26,7 +26,7 @@ const Carrouselprojet = ({ }) => {
       <div className="text-center mb-8">
         <h1>Bienvenue sur votre nouvelle page !</h1>
         <p>Ceci est un composant de base prêt à être développé.</p>
-        <Slider className="mt-4 mx-auto" {...settings}>
+        <Slider className="mt-4 mx-auto background-white" {...settings}>
           <div className="px-4">
             <Image src="/tablature.png" alt="Acacia" layout="responsive" width={1920} height={1080} className="rounded-lg" />
           </div>

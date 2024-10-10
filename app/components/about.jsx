@@ -7,7 +7,7 @@ const About = () => {
                 <h2 className="text-3xl font-bold mb-4">Qui suis-je ?</h2>
                 <p className="mb-2 text-lg highlight-text">Actuellement en troisième année à MyDigitalSchool, je prépare un master en Web Design, alliant créativité et expertise technique. Mon parcours m&apos;a permis de développer des compétences solides en développement front-end, en graphisme et en web design. Je maîtrise des technologies modernes telles que HTML, CSS, Tailwind, ainsi que des frameworks comme Next.js, React, VueJs. </p>
                 <p className="mb-2 text-lg highlight-text">En parallèle, je possède une expertise avancée sur des outils de design tels que Figma, Photoshop et Illustrator, ce qui me permet de créer des interfaces esthétiques et ergonomiques, ainsi que des contenus graphiques impactants. Mon sens du détail et ma vision créative me permettent de concevoir des expériences utilisateurs à la fois visuelles et fonctionnelles. </p>
-                <p className="mb-2 text-lg highlight-text">À côté de mes études, je pratique la guitare électrique et des sports de montagnes, comme la spéléologie ou l&apos;escalade en falaise, des activités qui nourrissent mon esprit créatif et mon goût pour les défis. </p>
+                
             </div>
 
             <Image

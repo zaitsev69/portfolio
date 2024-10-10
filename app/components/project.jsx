@@ -1,27 +1,11 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
 
-const ProjectCard = ({ title, techno, date, shortDescription, detailedDescription, image, link, inView, index, onImageClick }) => (
-  <motion.div
-    className="group bg-black w-full border-4 border-white max-w-full mx-auto rounded-lg p-6 cursor-pointer flex justify-between items-center mb-6 transition-all duration-500 overflow-hidden transform"
-    initial={{ opacity: 0, y: 50 }}  // Modifié à y: 50 pour une montée plus douce
-    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}  // Ajustement de y
-    transition={{
-      duration: 0.5,  // Durée plus longue pour la fluidité
-      ease: "easeInOut",  // Utilisation d'une courbe d'accélération plus douce
-    }}
-    whileHover={{ scale: 1.05 }}  
-    onClick={() => window.open(link, '_blank')}
-  >
-    <motion.div
-      className="flex flex-col justify-start w-1/2"
-      initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6, ease: "easeInOut", delay: index * 0.1 }}
-    >
+const ProjectCard = ({ title, techno, date, shortDescription, detailedDescription, image, link }) => (
+  <div className="group bg-black w-full border-4 border-white max-w-full mx-auto rounded-lg p-6 mb-6 flex">
+    {/* Section Texte à gauche */}
+    <div className="w-1/2 pr-6 flex flex-col justify-start">
       <h3 className="text-2xl text-white font-bold mb-2">{title}</h3>
       <h4 className="text-md text-white font-semibold mb-2">{techno}</h4>
       <p className="italic text-white text-sm mb-4">{date}</p>
@@ -29,54 +13,25 @@ const ProjectCard = ({ title, techno, date, shortDescription, detailedDescriptio
       <div className="mt-4">
         <p className="text-white">{detailedDescription}</p>
       </div>
-    </motion.div>
+    </div>
 
-    <motion.div
-      className="w-1/2 h-auto"
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6, ease: "easeInOut", delay: index * 0.1 }}
-    >
+    {/* Section Image à droite */}
+    <div className="w-1/2 overflow-hidden rounded-lg">
       <Image 
         src={image} 
         width={800} 
         height={600} 
         alt="Project image" 
-        className="object-cover w-full h-full rounded-lg"
-        onClick={(e) => {
-          e.stopPropagation();
-          onImageClick(image);
-        }}
+        className="object-cover w-[150%] h-full transform translate-x-[-25%] rounded-lg"
       />
-    </motion.div>
-  </motion.div>
+    </div>
+  </div>
 );
 
 const Project = () => {
-  const [inView, setInView] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setInView(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [activeCategory]);
-
+  const [activeCategory, setActiveCategory] = useState('dev');
+  const projectRefs = useRef({});  // Storing refs for each category
+  const menuRef = useRef(null);
 
   const projects = {
     dev: [
@@ -149,6 +104,17 @@ L'objectif de ce site est de transmettre l'esprit du festival, d'informer le pub
         `,
         image: "/concert.jpg",
         link: "/bouchondesfilles", 
+      },
+      {
+        title: "Bouchon des filles",
+        techno: "Photoshop",
+        date: "Mars 2024",
+        shortDescription: "Bouchon des filles",
+        detailedDescription: `
+          Cette affiche a été conçue pour un concert de musique rock, en utilisant Photoshop pour créer un design attractif et impactant. 
+        `,
+        image: "/concert.jpg",
+        link: "/bouchondesfilles", 
       }
     ],
     ui: [
@@ -166,90 +132,118 @@ L'objectif de ce site est de transmettre l'esprit du festival, d'informer le pub
     ],
   };
 
+
+  useEffect(() => {
+    // Vérifier si la section "dev" est visible au chargement de la page
+    const devSection = projectRefs.current['dev'];
+    if (devSection) {
+      const rect = devSection.getBoundingClientRect();
+      if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+        setActiveCategory('dev');
+      }
+    }
   
-  const toggleCategory = (category) => {
-    setInView(false);  // Réinitialiser inView lors du changement de catégorie
-    setActiveCategory(category);
-  };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let visibleSections = entries
+          .filter(entry => entry.isIntersecting)
+          .map(entry => ({
+            category: entry.target.getAttribute('data-category'),
+            intersectionRatio: entry.intersectionRatio
+          }));
+  
+        if (visibleSections.length > 0) {
+          // Trier les sections visibles par leur ratio de visibilité pour activer celle la plus visible
+          visibleSections.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          setActiveCategory(visibleSections[0].category);
+        }
+      },
+      { threshold: 0.5 } // On active l'observateur dès qu'une petite partie de la section est visible
+    );
+  
+    Object.keys(projectRefs.current).forEach((key) => {
+      if (projectRefs.current[key]) {
+        observer.observe(projectRefs.current[key]);
+      }
+    });
+  
+    return () => {
+      Object.keys(projectRefs.current).forEach((key) => {
+        if (projectRefs.current[key]) {
+          observer.unobserve(projectRefs.current[key]);
+        }
+      });
+    };
+  }, []);
 
   return (
-    <div className="mt-64 text-black" id="projects" ref={ref}>
-      <div className="text-center mb-8 sticky top-5 z-50 flex gap-4 justify-center">
-        <motion.button
-          className={` px-4 py-2 rounded-lg ${activeCategory === 'dev' ? 'bg-black border-2 border-white text-white' : 'bg-white text-black'}`}
-          onClick={() => toggleCategory('dev')}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          Dev Projects
-        </motion.button>
-        <motion.button
-          className={`px-4 py-2 rounded-lg ${activeCategory === 'graphisme' ? 'bg-black border-2 border-white text-white' : 'bg-white text-black'}`}
-          onClick={() => toggleCategory('graphisme')}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          Graphisme
-        </motion.button>
-        <motion.button
-          className={`px-4 py-2 rounded-lg ${activeCategory === 'ui' ? 'bg-black border-2 border-white text-white' : 'bg-white text-black'}`}
-          onClick={() => toggleCategory('ui')}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          UI Projects
-        </motion.button>
+    <div className="flex mt-64 text-black" id="projects">
+      {/* Menu Vertical à gauche */}
+      <div className="w-1/4 sticky top-5 h-screen bg-black p-6">
+        <div ref={menuRef} className="flex flex-col gap-4 text-white">
+          <button 
+            className={`${activeCategory === 'dev' ? 'bg-white text-black' : 'text-white'} py-4 px-6 text-xl font-bold rounded-lg border-2 border-white transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-black`} 
+            onClick={() => projectRefs.current['dev'].scrollIntoView({ behavior: 'smooth' })}
+          >
+            Dev Projects
+          </button>
+          <button 
+            className={`${activeCategory === 'graphisme' ? 'bg-white text-black' : 'text-white'} py-4 px-6 text-xl font-bold rounded-lg border-2 border-white transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-black`} 
+            onClick={() => projectRefs.current['graphisme'].scrollIntoView({ behavior: 'smooth' })}
+          >
+            Graphisme
+          </button>
+          <button 
+            className={`${activeCategory === 'ui' ? 'bg-white text-black' : 'text-white'} py-4 px-6 text-xl font-bold rounded-lg border-2 border-white transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-black`} 
+            onClick={() => projectRefs.current['ui'].scrollIntoView({ behavior: 'smooth' })}
+          >
+            UI Projects
+          </button>
+        </div>
       </div>
 
-      {activeCategory === null ? (
-        <div className="text-center text-white">
-          <p>Veuillez sélectionner une catégorie pour afficher les projets.</p>
-        </div>
-      ) : (
-        <AnimatePresence>
-          <motion.div
-            key={activeCategory}
-            className="flex flex-col gap-8"
-            initial={{ opacity: 0, y: 50 }}  // Départ plus bas pour l'animation globale
-            animate={{ opacity: 1, y: 0 }}  // Montée plus fluide
-            exit={{ opacity: 0, y: 50 }}  // Retour en douceur
-            transition={{ duration: 0.6, ease: "easeInOut" }}  // Transition plus longue et plus fluide
-          >
-            {projects[activeCategory].map((project, index) => (
-              <ProjectCard 
-                key={index}
-                title={project.title}
-                techno={project.techno}
-                date={project.date}
-                shortDescription={project.shortDescription}
-                detailedDescription={project.detailedDescription}
-                image={project.image}
-                link={project.link}
-                inView={inView}
-                index={index}
-                onImageClick={setSelectedImage}  
-              />
-            ))}
-          </motion.div>
-        </AnimatePresence>
-      )}
-
-      {selectedImage && (
-        <motion.div 
-          className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          onClick={() => setSelectedImage(null)}
+      {/* Projets à droite */}
+      <div className="w-11/12 flex flex-col gap-8 p-6 overflow-y-auto">
+        <div 
+          ref={(el) => (projectRefs.current['dev'] = el)} 
+          data-category="dev" 
+          className="min-h-screen"  // S'assurer que la section est assez grande pour l'observer
         >
-          <Image 
-            src={selectedImage} 
-            width={1200} 
-            height={900} 
-            alt="Full screen image"
-            className="object-contain"
-          />
-        </motion.div>
-      )}
+          {projects.dev.map((project, index) => (
+            <ProjectCard 
+              key={index} 
+              {...project} 
+              onHover={() => setActiveCategory('dev')}  // Survoler un projet dev déclenche ceci
+            />
+          ))}
+        </div>
+        <div 
+          ref={(el) => (projectRefs.current['graphisme'] = el)} 
+          data-category="graphisme" 
+          className="min-h-screen"  // S'assurer que la section est assez grande pour l'observer
+        >
+          {projects.graphisme.map((project, index) => (
+            <ProjectCard 
+              key={index} 
+              {...project} 
+              onHover={() => setActiveCategory('graphisme')}  // Survoler un projet graphisme
+            />
+          ))}
+        </div>
+        <div 
+          ref={(el) => (projectRefs.current['ui'] = el)} 
+          data-category="ui" 
+          className="min-h-screen"  // S'assurer que la section est assez grande pour l'observer
+        >
+          {projects.ui.map((project, index) => (
+            <ProjectCard 
+              key={index} 
+              {...project} 
+              onHover={() => setActiveCategory('ui')}  // Survoler un projet UI
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
