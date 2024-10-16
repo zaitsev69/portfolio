@@ -24,6 +24,22 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.cursor {
+  position: fixed;
+  border-radius: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  pointer-events: none;
+  left: -100px;
+  top: 50%;
+  mix-blend-mode: difference;
+  background-color: white;
+  z-index: 10000;
+  border: 2px solid white;
+  height: 30px;
+  width: 30px;
+  transition: all 300ms ease-out;
+}
+
 
 @layer utilities {
   .text-balance {
@@ -37,6 +53,11 @@ body {
   margin: 0;
   font-family: var(--font-inter);
 }
+
+span {
+  font-family: var(--titre)
+}
+
 
 /*typing*/
 

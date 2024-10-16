@@ -1,7 +1,16 @@
+import { Archivo_Narrow } from 'next/font/google';
+
+const archivo_narrow = Archivo_Narrow({
+    weight: '700',
+    subsets: ['latin'],
+    display: 'swap',
+  });
+
+
 const Navbar = () => {
     return (
         <div>
-            <ul className="nav-bar text-white justify-around py-5 font-semibold hidden lg:flex">
+            <ul className={`nav-bar ${archivo_narrow.className} text-white justify-around py-5 font-semibold hidden lg:flex `}>
                 <li className="nav-item delay-1"><a href="#about">A propos</a></li>
                 <li className="nav-item delay-2"><a href="#skills">Skills</a></li>
                 <li className="nav-item delay-3"><a href="#projects">Projets</a></li>
@@ -10,4 +19,5 @@ const Navbar = () => {
         </div>
     );
 };
+
 export default Navbar;

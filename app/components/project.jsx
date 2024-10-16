@@ -1,22 +1,25 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link"; // Importer Link pour la navigation interne
 
-const ProjectCard = ({ title, backgroundImage }) => (
-  <div className="relative w-full h-96 bg-cover bg-center rounded-lg overflow-hidden shadow-lg group">
-    {/* Image de fond avec flou par défaut et transition fluide */}
-    <div
-      className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out filter blur-sm group-hover:blur-none"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    ></div>
+const ProjectCard = ({ title, backgroundImage, link }) => (
+  <Link href={link}> {/* Encapsuler le ProjectCard dans un lien */}
+      <div className="relative w-full h-96 bg-cover bg-center rounded-lg overflow-hidden shadow-lg group">
+        {/* Image de fond avec flou par défaut et transition fluide */}
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out filter blur-sm group-hover:blur-none"
+          style={{ backgroundImage: `url(${backgroundImage})` }}
+        ></div>
 
-    {/* Titre centré qui n'est jamais affecté par le flou */}
-    <div className="absolute inset-0  flex items-center justify-center transition-all duration-500 ease-in-out group-hover:opacity-0 z-20">
-      <h2 className="text-white text-4xl font-bold text-center">{title}</h2>
-    </div>
-  </div>
+        {/* Titre centré qui n'est jamais affecté par le flou */}
+        <div className="absolute inset-0  flex items-center justify-center transition-all duration-500 ease-in-out group-hover:opacity-0 z-20">
+          <h2 className="text-white text-4xl font-bold text-center">{title}</h2>
+        </div>
+      </div>
+
+  </Link>
 );
-
 
 const Project = () => {
   const [activeCategory, setActiveCategory] = useState("dev");
@@ -112,9 +115,9 @@ const Project = () => {
           data-category="dev"
           className="min-auto"
         >
-          <ProjectCard title="Générateur de tablature" backgroundImage="/tablature.png" />
-          <ProjectCard title="Site vitrine restaurant" backgroundImage="/acacia.png" />
-          <ProjectCard title="Pentes en Scène" backgroundImage="/pente.png" />
+          <ProjectCard title="Générateur de tablature" backgroundImage="/tablature.png" link="https://tabs-creator-six.vercel.app/"/>
+          <ProjectCard title="Site vitrine restaurant" backgroundImage="/acacia.png" link="https://www.acaciaenprovence.fr/" />
+          <ProjectCard title="Pentes en Scène" backgroundImage="/pente.png" link="https://ariella-lekogoyolla.mds-lyon.yt/" />
         </div>
 
         {/* Section Graphisme */}
@@ -123,9 +126,9 @@ const Project = () => {
           data-category="graphisme"
           className="min-auto"
         >
-          <ProjectCard title="Bouchon des filles" backgroundImage="/bouchon.png" />
-          <ProjectCard title="3D poster concept" backgroundImage="/borntorave.png" />
-          <ProjectCard title="Cover Concept" backgroundImage="/laylow.png" />
+          <ProjectCard title="Bouchon des filles" backgroundImage="/verre.png" link="/bouchondesfilles" />
+          <ProjectCard title="3D poster concept" backgroundImage="/borntorave.png" link="/poster" />
+          <ProjectCard title="Cover Concept" backgroundImage="/laylow.png" link="/cover" />
         </div>
 
         {/* Section UI Projects */}
@@ -134,7 +137,7 @@ const Project = () => {
           data-category="ui"
           className="min-auto"
         >
-          <ProjectCard title="UI Kit pour une application mobile" backgroundImage="/ui-kit.jpg" />
+          <ProjectCard title="UI Kit pour une application mobile" backgroundImage="/ui-kit.jpg" link="/projects/ui-kit" />
         </div>
       </div>
     </div>

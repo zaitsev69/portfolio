@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'guillemet': "url('/guille.png')",
+      }
 
     },
   },

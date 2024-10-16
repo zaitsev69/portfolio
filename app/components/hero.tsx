@@ -1,6 +1,14 @@
 "use client";
+
 import { useEffect, useRef, useState } from 'react';
 import Typed from 'typed.js';
+import { Archivo_Narrow } from 'next/font/google';
+
+const archivo_narrow = Archivo_Narrow({
+    weight: '700',
+    subsets: ['latin'],
+    display: 'swap',
+  });
 
 const Hero = () => {
     const typedElement = useRef(null); // Ref pour l'élément .texte
@@ -34,10 +42,10 @@ const Hero = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen text-white font-bold text-5xl">
-            {/* Empêcher le retour à la ligne avec whitespace-nowrap */}
-            <div className="whitespace-nowrap">
-                Nathan Cadilhac, <span ref={typedElement} className="texte"></span>
+        <div className="flex flex-col items-center justify-center h-screen text-white text-5xl">
+            {/* Titre avec la police Archivo_Narrow */}
+            <div className={`whitespace-nowrap font-bold ${archivo_narrow.className}`}>
+                Nathan Cadilhac, <span ref={typedElement}></span>
             </div>
             
             {/* Affichage conditionnel du bouton avec un délai et une transition d'opacité */}

@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Roboto_Slab, Archivo_Narrow } from 'next/font/google';
+ 
+const roboto_slab = Roboto_Slab({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+});
+ 
+export const archivo_narrow = Archivo_Narrow({
+  weight: '700',
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Nathan Cadilhac Website",
@@ -16,7 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      {/* Appliquer la police Roboto globalement */}
+      <body className={roboto_slab.className}>{children}</body>
     </html>
   );
 }
