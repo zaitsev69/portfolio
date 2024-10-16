@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'roboto-slab': ['Roboto Slab', 'serif'],
+        'archivo-narrow': ['Archivo Narrow', 'sans-serif'],
+      },
       backgroundImage: {
         'guillemet': "url('/guille.png')",
       }

@@ -1,18 +1,6 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
-import { Roboto_Slab, Archivo_Narrow } from 'next/font/google';
- 
-const roboto_slab = Roboto_Slab({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-});
- 
-export const archivo_narrow = Archivo_Narrow({
-  weight: '700',
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: "Nathan Cadilhac Website",
@@ -25,9 +13,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      {/* Appliquer la police Roboto globalement */}
-      <body className={roboto_slab.className}>{children}</body>
+    <html lang="fr">
+      <head>
+        {/* Import direct des polices depuis Google Fonts */}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&family=Archivo+Narrow:wght@700&display=swap" />
+      </head>
+      <body className="font-roboto-slab">
+        {children}
+      </body>
     </html>
   );
 }

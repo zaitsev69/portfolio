@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -51,12 +53,9 @@ body {
   background: black;
   min-height: 100vh;
   margin: 0;
-  font-family: var(--font-inter);
 }
 
-span {
-  font-family: var(--titre)
-}
+
 
 
 /*typing*/
