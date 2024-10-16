@@ -1,22 +1,21 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import Link from "next/link"; // Importer Link pour la navigation interne
+import Link from "next/link"; 
 
-const ProjectCard = ({ title, backgroundImage, link }) => (
-  <Link href={link}> {/* Encapsuler le ProjectCard dans un lien */}
-      <div className="relative w-full h-96 bg-cover bg-center rounded-lg overflow-hidden shadow-lg group">
-        {/* Image de fond avec flou par défaut et transition fluide */}
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out filter blur-sm group-hover:blur-none"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
-        ></div>
+const ProjectCard = ({ title, second, backgroundImage, link }) => (
+  <Link href={link}> 
+    <div id="project" className="relative w-full h-96 bg-cover bg-center rounded-lg overflow-hidden shadow-lg group">
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out filter blur-sm group-hover:blur-none"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      ></div>
 
-        {/* Titre centré qui n'est jamais affecté par le flou */}
-        <div className="absolute inset-0  flex items-center justify-center transition-all duration-500 ease-in-out group-hover:opacity-0 z-20">
-          <h2 className="text-white text-4xl font-bold text-center">{title}</h2>
-        </div>
+      <div className="absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ease-in-out group-hover:opacity-0 z-20">
+        <h2 className="text-white text-4xl font-bold text-center">{title}</h2>
+        <h2 className="text-white text-2xl font-bold text-center mt-2">{second}</h2>
       </div>
+
+    </div>
 
   </Link>
 );
@@ -68,76 +67,36 @@ const Project = () => {
 
   return (
     <div className="flex flex-col mt-12 text-black" id="projects">
-      {/* Menu Horizontal en haut */}
-      <div className="w-full bg-black p-6">
-        <div className="flex gap-4 text-white justify-center">
-          <button
-            className={`${
-              activeCategory === "dev" ? "bg-white text-black" : "text-white"
-            } py-4 px-6 text-xl font-bold rounded-lg border-2 border-white transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-black`}
-            onClick={() => {
-              setActiveCategory("dev");
-              projectRefs.current["dev"].scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Dev Projects
-          </button>
-          <button
-            className={`${
-              activeCategory === "graphisme" ? "bg-white text-black" : "text-white"
-            } py-4 px-6 text-xl font-bold rounded-lg border-2 border-white transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-black`}
-            onClick={() => {
-              setActiveCategory("graphisme");
-              projectRefs.current["graphisme"].scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Graphisme
-          </button>
-          <button
-            className={`${
-              activeCategory === "ui" ? "bg-white text-black" : "text-white"
-            } py-4 px-6 text-xl font-bold rounded-lg border-2 border-white transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-black`}
-            onClick={() => {
-              setActiveCategory("ui");
-              projectRefs.current["ui"].scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            UI Projects
-          </button>
-        </div>
-      </div>
 
-      {/* Projets en dessous */}
+
       <div className="w-full flex flex-col p-6 overflow-y-auto">
-        {/* Section Dev Projects */}
         <div
           ref={(el) => (projectRefs.current["dev"] = el)}
           data-category="dev"
           className="min-auto"
         >
-          <ProjectCard title="Générateur de tablature" backgroundImage="/tablature.png" link="https://tabs-creator-six.vercel.app/"/>
-          <ProjectCard title="Site vitrine restaurant" backgroundImage="/acacia.png" link="https://www.acaciaenprovence.fr/" />
-          <ProjectCard title="Pentes en Scène" backgroundImage="/pente.png" link="https://ariella-lekogoyolla.mds-lyon.yt/" />
+          <ProjectCard title="Générateur de tablature" second="VueJS" backgroundImage="/tablature.png" link="https://tabs-creator-six.vercel.app/" />
+          <ProjectCard title="Site vitrine restaurant" second="NextJS / React" backgroundImage="/acacia.png" link="https://www.acaciaenprovence.fr/" />
+          <ProjectCard title="Pentes en Scène" second="Wordpress" backgroundImage="/pente.png" link="https://ariella-lekogoyolla.mds-lyon.yt/" />
         </div>
 
-        {/* Section Graphisme */}
         <div
           ref={(el) => (projectRefs.current["graphisme"] = el)}
           data-category="graphisme"
           className="min-auto"
         >
-          <ProjectCard title="Bouchon des filles" backgroundImage="/verre.png" link="/bouchondesfilles" />
-          <ProjectCard title="3D poster concept" backgroundImage="/borntorave.png" link="/poster" />
-          <ProjectCard title="Cover Concept" backgroundImage="/laylow.png" link="/cover" />
+          <ProjectCard title="Bouchon des filles" second="Créa" backgroundImage="/verre.png" link="/bouchondesfilles" />
+          <ProjectCard title="3D poster concept" second="Créa" backgroundImage="/borntorave.png" link="/poster" />
+          <ProjectCard title="Cover Concept" second="Créa" backgroundImage="/laylow.png" link="/cover" />
         </div>
 
-        {/* Section UI Projects */}
+
         <div
           ref={(el) => (projectRefs.current["ui"] = el)}
           data-category="ui"
           className="min-auto"
         >
-          <ProjectCard title="UI Kit pour une application mobile" backgroundImage="/ui-kit.jpg" link="/projects/ui-kit" />
+          <ProjectCard title="Square Agency" second="UI/UX" backgroundImage="/webagency.png" link="/squareagency" />
         </div>
       </div>
     </div>

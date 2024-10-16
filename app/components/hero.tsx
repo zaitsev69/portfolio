@@ -41,7 +41,7 @@ const Hero = () => {
                 ${showButton ? 'opacity-100' : 'opacity-0'} transition-opacity duration-2000`}
                 style={{ transitionDelay: showButton ? '0s' : '1s' }}
                 onClick={() => {
-                    const aboutSection = document.getElementById('about');
+                    const aboutSection = document.getElementById('project');
                     if (aboutSection) {
                         aboutSection.scrollIntoView({ behavior: 'smooth' });
                     }

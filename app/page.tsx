@@ -3,6 +3,7 @@ import Navbar from '../app/components/navbar';
 import Hero from '../app/components/hero';
 import About from '../app/components/about';
 import Project from '../app/components/project';
+import Carrouselprojet from '../app/components/project2';
 import Contact from '../app/components/contact';
 import Footer from '../app/components/footer';
 import Skilldeux from '../app/components/skilldeux';
@@ -16,7 +17,6 @@ export default function Home() {
       <Mobile />
       <Navbar />
       <Hero />
-      <About />
       <Project />
       <Contact />
       <Footer />
