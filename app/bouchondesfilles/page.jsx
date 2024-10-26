@@ -9,7 +9,7 @@ const BouchonDesFilles = () => {
     <div>
       <CircleCursor />
       <StickyButton />
-      <div className="mx-24 2xl:mx-48 scroll-smooth flex justify-between items-center mt-10">
+      <div className="mx-24 2xl:mx-48 scroll-smooth flex justify-between items-center mt-10 ">
         <div className="w-1/2 pr-8">
           <p className='text-white'>
             Réalisation du logo et de la charte graphique d&apos;un restaurant lyonnais, Le bouchon des filles.

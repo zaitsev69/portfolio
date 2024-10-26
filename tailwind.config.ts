@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         'roboto-slab': ['Roboto Slab', 'serif'],
         'archivo-narrow': ['Archivo Narrow', 'sans-serif'],
+        'helvetica': ['Helvetica', 'Arial', 'sans-serif'],
       },
       backgroundImage: {
         'guillemet': "url('/guille.png')",

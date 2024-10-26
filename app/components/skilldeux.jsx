@@ -93,7 +93,7 @@ const SkillDeux = () => {
         { name: 'tailwind', src: '/tailwind.svg', description: 'Maîtrise 80%' },
         { name: 'nextjs', src: '/nextjs.svg', description: 'Maîtrise 70%' },
         { name: 'svelte', src: '/svelte.svg', description: 'Maîtrise 60%' },
-        { name: 'wordpress', src: '/wordpress.svg', description: 'Maîtrise 90%' },
+        { name: 'wordpress', src: '/wordpress.svg', description: 'Maîtrise 90%' },  
     ];
 
     const crea = [

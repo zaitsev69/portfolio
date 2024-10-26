@@ -13,7 +13,7 @@ const StickyButton = () => {
   return (
     <button
       onClick={handleClick}
-      className="fixed bottom-4 right-4 bg-black text-white py-4 px-6 text-xl font-bold rounded-lg border-2 border-white transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-black"
+      className="font-helvetica fixed bottom-4 right-4 bg-black text-white py-4 px-6  font-bold rounded-lg border-2 border-white transition-all duration-300 ease-in-out hover:bg-gray-200 hover:text-black"
     >
       Retour aux projets
     </button>

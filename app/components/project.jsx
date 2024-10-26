@@ -10,7 +10,7 @@ const ProjectCard = ({ title, second, backgroundImage, link }) => (
         style={{ backgroundImage: `url(${backgroundImage})` }}
       ></div>
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ease-in-out group-hover:opacity-0 z-20">
+      <div className="absolute font-helvetica inset-0 flex flex-col items-center justify-center transition-all duration-500 ease-in-out group-hover:opacity-0 z-20">
         <h2 className="text-white text-4xl font-bold text-center">{title}</h2>
         <h2 className="text-white text-2xl font-bold text-center mt-2">{second}</h2>
       </div>

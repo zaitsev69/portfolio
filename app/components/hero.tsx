@@ -29,15 +29,15 @@ const Hero = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen text-white text-5xl">
+        <div className="flex flex-col items-center justify-center h-screen text-white text-5xl ">
             {/* Titre avec la police Archivo Narrow */}
-            <div className="whitespace-nowrap font-bold font-archivo-narrow">
+            <div className="whitespace-nowrap font-bold font-helvetica">
                 Nathan Cadilhac, <span ref={typedElement}></span>
             </div>
 
             {/* Bouton */}
             <button
-                className={`mt-10 px-6 py-3 bg-black border-4 border-white text-white text-lg rounded hover:bg-white hover:text-black transition-colors duration-300 
+                className={`mt-10 px-6 py-3 bg-black border-2 font-helvetica border-white text-white text-lg rounded hover:bg-white hover:text-black transition-colors duration-300 
                 ${showButton ? 'opacity-100' : 'opacity-0'} transition-opacity duration-2000`}
                 style={{ transitionDelay: showButton ? '0s' : '1s' }}
                 onClick={() => {
