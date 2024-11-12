@@ -10,7 +10,7 @@ import Skilldeux from '../app/components/skilldeux';
 import Mobile from '../app/components/mobile'
 import CircleCursor from '../app/components/cursor'
 
-export default function Home() {
+export default function Home() {  
   return (
     <main className="mx-24 2xl:mx-48 scroll-smooth">
       <CircleCursor />

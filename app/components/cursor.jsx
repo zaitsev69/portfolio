@@ -1,5 +1,7 @@
 "use client"
+
 // /app/components/CircleCursor.js
+
 import React, { useEffect, useState } from 'react';
 
 const CircleCursor = () => {
@@ -21,19 +23,31 @@ const CircleCursor = () => {
     <div
       style={{
         position: 'fixed',
-        top: position.y - 35, 
-        left: position.x - 35, 
-        width: '70px', 
-        height: '70px', 
+        top: position.y - 35,
+        left: position.x - 35,
+        width: '70px',
+        height: '70px',
         borderRadius: '50%',
         backgroundColor: 'white',
-        mixBlendMode: 'difference', 
+        mixBlendMode: 'difference',
         pointerEvents: 'none',
-        zIndex: 9999, 
-        transition: 'transform 0.1s ease-out', 
-        cursor: 'crosshair',
+        zIndex: 9999,
       }}
-    ></div>
+    >
+      {/* Point central */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          width: '7px',
+          height: '7px',
+          borderRadius: '50%',
+          backgroundColor: 'black',
+          transform: 'translate(-50%, -50%)',
+        }}
+      ></div>
+    </div>
   );
 };
 
