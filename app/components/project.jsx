@@ -93,7 +93,7 @@ const Project = () => {
     {
       title: "Live Culture",
       second: "UI UX / Wordpress",
-      backgroundImage: "/live.jpg",
+      backgroundImage: "/liveculture.jpg",
       link: "/",
       category: ["ui ux","developpement"],
       date: "2025-02-10",
