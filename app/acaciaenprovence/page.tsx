@@ -2,6 +2,7 @@
 import Image from "next/image";
 import CircleCursor from '../components/cursor'
 import StickyButton from '../components/bouton'
+import LinkPreview from "../components/LinkPreview";
 
 const acacia = () => {
     return (
@@ -13,7 +14,7 @@ const acacia = () => {
                     <p className='text-white text-3xl'>
                         Réalisation du logo, de la charte graphique ainsi que la conception et le développement d'un site pour un restaurant L&apos;acacia en provence.
                     </p>
-                    <p className="text-cyan-400 underline text-2xl mt-4"><a href="https://www.acaciaenprovence.fr/" target="_blank">Consultez le site</a></p>
+                    <p className="text-cyan-400 underline text-2xl mt-4"><a href="" target="_blank">Consultez le site</a></p>
                     <p className='text-white text mt-2'>
                         Travaux réalisés dans le cadre d'un stage d&apos;une durée de 2 mois.
                     </p>
@@ -43,25 +44,36 @@ const acacia = () => {
             </div>
 
             <p className='text-white mx-24 lg:mx-48 bg-guillemet bg-no-repeat bg-left bg-scroll bg-[length:50px] max-w-2xl pt-12 pl-24 pb-8 text-left'>
-            Lorsque que je suis arrivé au restaurant, il n’avait pas d’identité vraiment définie. Pas de logo, pas de couleurs précises ni de typographies. Par contre le restaurant en lui-même avait une atmosphère particulière plutôt chaleureuse et familiale, je m’en suis donc inspiré pour le branding du restaurant.
+                Lorsque que je suis arrivé au restaurant, il n’avait pas d’identité vraiment définie. Pas de logo, pas de couleurs précises ni de typographies. Par contre le restaurant en lui-même avait une atmosphère particulière plutôt chaleureuse et familiale, je m’en suis donc inspiré pour le branding du restaurant.
             </p>
             <div className="flex flex-col lg:flex-row h-screen mx-24">
-                <Image
-                    src="/moodboard.png"
-                    width={5000}
-                    height={3334}
-                    alt="Picture of the author"
-                    className="w-full h-auto"
-                />
+                <div className="relative w-full max-w-full h-full">
+                    <Image
+                        src="/moodboard.png"
+                        alt="Picture of the author"
+                        width={5000}
+                        height={3334}
+                        className="absolute top-0 left-0 w-full h-full object-contain"
+                    />
+                </div>
+            </div>
 
 
+
+
+            <div className="mt-24 mx-24 flex items-center justify-between">
+                <div className="text-left w-1/2">
+                    <p className="text-white text-2xl">Maquettes</p>
+                    <p className="text-white mb-4">
+                        J'ai créé deux maquettes afin dans un premier temps de valider le design par mes responsables et dans un second temps pour m'appuyer dessus durant le développement.
+                    </p>
+                    <p>Cliquez sur l'image de droite </p>
+                </div>
+                <div className="w-1/2">
+                    <LinkPreview url="https://www.figma.com/design/kuigoW2qmnAdLYspej4XWX/Maquette-Acacia-en-Provence?node-id=0-1&p=f&t=SqUHaTPYzbyOH938-0" />
+                </div>
             </div>
-            <div className="mt-24 mx-auto text-center">
-                <p className="text-white text-2xl">Maquettes</p>
-                <p className="text-white ">J'ai créer deux maquettes afin dans un premier temps de valider le design par mes responsable et dans un second temps pour m'appuyer dessus durant le développement.</p>
-                <p><a className="text-cyan-400 underline" target="_blank" href="https://www.figma.com/design/kuigoW2qmnAdLYspej4XWX/Maquette-Acacia-en-Provence?node-id=0-1&t=f8YRFJrmaMG1xZ3a-1">Cliquez ici pour voir les maquettes directement sur Figma.</a></p>
-            </div>
-            
+
 
         </div>
 
