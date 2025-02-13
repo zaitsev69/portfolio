@@ -39,10 +39,12 @@ const LinkPreview = ({ url }) => {
           )}
         </a>
       ) : (
-        <p>Chargement de la preview...</p>
+        <p className="text-black">Chargement de la preview...</p>
       )}
     </div>
+    
   );
+  
 };
 
 export default LinkPreview;
