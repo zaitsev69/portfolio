@@ -86,7 +86,7 @@ const Project = () => {
       title: "Landing Page - I ♥ Amsterdam",
       second: "UI UX",
       backgroundImage: "/amsterdam.jpg",
-      link: "/",
+      link: "/amsterdam",
       category: ["ui ux"],
       date: "2024-11-13",
     },
