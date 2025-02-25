@@ -10,7 +10,7 @@ const Hero = () => {
 
     useEffect(() => {
         const options = {
-            strings: ["développeur front", "web designer", "graphiste"],
+            strings: ["web designer", "graphiste", "développeur front"],
             typeSpeed: 80,
             backSpeed: 60,
             loop: true,
