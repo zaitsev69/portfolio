@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Navbar from '../app/components/navbar';
 import Hero from '../app/components/hero';
-import About from '../app/components/about';
 import Project from '../app/components/project';
 import Carrouselprojet from '../app/components/project2';
 import Contact from '../app/components/contact';
