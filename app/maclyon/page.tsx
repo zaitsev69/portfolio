@@ -34,21 +34,7 @@ export default function mac() {
                     </div>
                 </section>
 
-                {/* Section Comparaison */}
-                <section className="bg-white rounded-2xl shadow-md p-6">
-                    <h2 className="text-2xl font-semibold mb-4 text-black">Ancien site de Nasser</h2>
-                    <div className="text-center">
-                        <img
-                            src="/sitenasser.png"
-                            alt="Ancien site de Nasser"
-                            className="w-full rounded-xl shadow-lg"
-                        />
-                    </div>
-                    <p className="text-gray-600 text-center mt-6">
-                        L'ancien site de Nasser nous montre l'évolution remarquable du design et
-                        des fonctionnalités grâce à cette refonte complète.
-                    </p>
-                </section>
+            
             </div>
         </div>
     );
