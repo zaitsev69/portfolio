@@ -37,18 +37,25 @@ const Hero = () => {
 
             {/* Bouton */}
             <button
-                className={`mt-10 px-6 py-3 bg-black border-2 font-helvetica border-white text-white text-lg rounded hover:bg-white hover:text-black transition-colors duration-300 
-                ${showButton ? 'opacity-100' : 'opacity-0'} transition-opacity duration-2000`}
-                style={{ transitionDelay: showButton ? '0s' : '1s' }}
-                onClick={() => {
-                    const aboutSection = document.getElementById('project');
-                    if (aboutSection) {
-                        aboutSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }}
-            >
-                Découvrir
-            </button>
+    className={`mt-10 px-6 py-3 bg-black border-2 font-helvetica border-white text-white text-lg rounded-md 
+        transition-all duration-500 ease-in-out 
+        hover:bg-gray-200 hover:text-black
+        ${showButton ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+    style={{ 
+        transitionDelay: showButton ? '0s' : '1s',
+        willChange: 'opacity, background-color, color'
+    }}
+    onClick={() => {
+        const aboutSection = document.getElementById('project');
+        if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }}
+>
+    Découvrir
+</button>
+
+
         </div>
     );
 };

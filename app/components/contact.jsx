@@ -22,9 +22,13 @@ const Contact = () => {
             </svg>
 
             <a href="mailto:nathan.cadilhacpro@gmail.com">
-                <button className="bg-white text-black p-2 rounded-lg text-xl font-extrabold border-4 border-transparent hover:border-black  transition-all duration-300">
-                    Me contacter
-                </button>
+            <button
+    className="bg-white text-black p-3 rounded-lg text-xl font-extrabold 
+        transition-colors duration-1000 ease-in-out 
+        hover:bg-black hover:text-white"
+>
+    Me contacter
+</button>
             </a>
 
 
