@@ -3,7 +3,7 @@ import Image from "next/image";
 import CircleCursor from '../components/cursor'
 import StickyButton from '../components/bouton'
 import LinkPreview from "../components/LinkPreview";
-
+import Link from "next/link";
 export default function LiveCulture() {
     return (
 
@@ -37,15 +37,16 @@ export default function LiveCulture() {
                     </div>
                 </section>
 
-                {/* Projet en construction */}
                 <section className="text-center py-12 bg-gray-200 rounded-2xl">
-                    <h2 className="text-xl font-medium text-gray-700 mb-4">
-                        🚧 Projet en construction 🚧
-                    </h2>
-                    <p className="text-gray-600">
-                        Le développement de Live Culture est en cours. Revenez bientôt pour
-                        découvrir le résultat final !
-                    </p>
+                <p className="text-black mb-4">Le site utilise des champs ACF pour l'affichage des événements. Étant un projet fictif, toutes les pages n'ont pas été développées.</p>
+                    <Link href="https://nathan-cadilhac.mds-lyon.yt/cmsmodule/" target="_blank">
+      <div className="relative inline-flex items-center px-6 py-3 text-white bg-black border border-white rounded-full group hover:bg-white hover:text-black transition duration-300 ease-in-out">
+        <span className="absolute inset-0 w-full h-full bg-gradient-to-r  to-black opacity-50 group-hover:opacity-0 transition duration-300"></span>
+        <span className="relative z-10 font-semibold tracking-wide uppercase">
+        Visiter Live Culture 🤘
+        </span>
+      </div>
+    </Link>
                 </section>
             </div>
         </div>
