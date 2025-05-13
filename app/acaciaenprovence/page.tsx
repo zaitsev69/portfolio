@@ -31,7 +31,7 @@ const acacia = () => {
             </div>
             <div className="flex flex-col lg:flex-row h-screen mx-24 mt-24 items-center">
                 <Image
-                    src="/acacia2.jpg"
+                    src="/planacacia.jpg"
                     width={6000}
                     height={5000}
                     alt="Picture of the author"
